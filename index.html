@@ -27,13 +27,20 @@
 <script>
     // Вкажіть дату і час у форматі "РРРР-ММ-ДДTГГ:ХХ:СС"
     const targetDate = new Date("2025-03-28T06:15:00").getTime();
+    const targetDateEnd = new Date("2025-03-30T22:00:00").getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
         const timeLeft = targetDate - now;
+        const timeLeftEnd = targetDateEnd - now;
 
-        if (timeLeft <= 0) {
-            document.getElementById("countdown").innerHTML = "Час настав!";
+        if (timeLeft <= 0 && timeLeftEnd > 0) {
+            document.getElementById("countdown").innerHTML = "Що ти дивишся? Йди цілуйся!!!";
+            return;
+        }
+
+        if (timeLeftEnd <= 0) {
+            document.getElementById("countdown").innerHTML = "Чекаю апдейту, надіюсь ми побачимось 19 - 20 квітня";
             return;
         }
 
